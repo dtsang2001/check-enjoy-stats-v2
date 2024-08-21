@@ -10,7 +10,7 @@ const SITE_URL = "https://check-enjoy-stats-v2.vercel.app/";
 // const SITE_URL = "https://5909-27-79-177-3.ngrok-free.app/";
 
 export const app = new Frog({
-  title: 'Check ENJOY Start By Dangs',
+  title: 'Check $ENJOY Start By Dangs',
   assetsPath: '/',
   basePath: '/api',
   ui: { vars },
@@ -111,7 +111,7 @@ app.frame('/', async (c) => {
       <Box height="100%" width="100%" backgroundSize="816px 426px" backgroundRepeat='no-repeat' backgroundImage={`url("${SITE_URL}/author.png")`}> </Box>
     ),
     intents: [
-      <Button action={action} value='/'>Check</Button>
+      <Button action={action} value='/'>Check $ENJOY Start</Button>
     ],
   })
 })
@@ -227,7 +227,7 @@ app.frame('/:fid/:secret', async (c) => {
     </Box>
     ),
     intents: [
-      <Button action={action} value='/'>Check</Button>,
+      <Button action={action} value='/'>Check Your</Button>,
       <Button.Link href={uriShare}>Share</Button.Link>
     ],
   })
