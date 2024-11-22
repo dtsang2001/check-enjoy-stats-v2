@@ -187,32 +187,7 @@ app.frame('/:fid/:secret', async (c) => {
   }
 
   var remaining = 0, tips_given = 0;
-  var data = {"parameters":[{"name":"wallet","type":"string","value":address}]};
-  var a = await fetch("https://api.usw2a1.rockset.com/v1/orgs/self/ws/frontend/lambdas/user_from_leaderboard/tags/latest" ,{ method:"POST", headers: {
-    'Content-Type': 'application/json', 
-    'Authorization': 'ApiKey 4caspW3wv3VHBmb8jHfYHXRulo39cLrQGlaqFyFMlgszKCcraI8hMoFznFwSdMRw'
-  }, body: JSON.stringify(data)});
-  var { results } = JSON.parse(await a.text());
-  
-
-  if (results.length) {
-    results = results[0];
-
-    var datac = {"parameters":[{"name":"wallet","type":"string","value":address}]};
-    var a = await fetch("https://api.usw2a1.rockset.com/v1/orgs/self/ws/frontend/lambdas/current_tips_by_x/tags/latest" ,{ method:"POST", headers: {
-      'Content-Type': 'application/json', 
-      'Authorization': 'ApiKey 4caspW3wv3VHBmb8jHfYHXRulo39cLrQGlaqFyFMlgszKCcraI8hMoFznFwSdMRw'
-    }, body: JSON.stringify(datac)});
-
-    var current_tips = JSON.parse(await a.text()).results;
-
-    if (current_tips.length > 0) {
-      tips_given = current_tips[0].tips_given || 0;
-    }
-
-  } else {
-    results = {};
-  }
+  results = {};
   var { balance, unique_mints, unique_collectors, allowance, score, rank } = results || {};
   allowance = parseInt(allowance || 0);
   remaining = allowance - tips_given;
