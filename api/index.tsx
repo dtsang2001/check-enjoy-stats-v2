@@ -186,8 +186,7 @@ app.frame('/:fid/:secret', async (c) => {
     })
   }
 
-  var remaining = 0, tips_given = 0;
-  results = {};
+  var remaining = 0, tips_given = 0, results = {};
   var { balance, unique_mints, unique_collectors, allowance, score, rank } = results || {};
   allowance = parseInt(allowance || 0);
   remaining = allowance - tips_given;
